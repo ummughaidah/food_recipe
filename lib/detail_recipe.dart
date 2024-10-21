@@ -13,10 +13,12 @@ class DetailRecipe extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        toolbarHeight: 80,
         title: Text(
           recipesModel.name!,
-          maxLines: 1,
+          maxLines: 2,
           overflow: TextOverflow.ellipsis,
+          softWrap: true,
           style: const TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         ),
@@ -35,7 +37,7 @@ class DetailRecipe extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             // food image
             ClipRRect(
               borderRadius: BorderRadius.circular(15),
@@ -83,18 +85,18 @@ class DetailRecipe extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             const Text(
-              'Preparation',
+              'Instructions',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            // preparation
+            // instructions
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: recipesModel.instructions!.map((instructions) {
                     return Row(
-                      children: [
+                      children: <Widget>[
                         CircleAvatar(
                           radius: 8,
                           backgroundColor: Colors.green.shade100,
